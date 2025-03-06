@@ -1,0 +1,44 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const author = "Makoge";
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={`Personal blog of ${author}`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script>
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <title>{pageTitle}</title>
+  </head>
+  <body
+    class="bg-neutral-100 font-sans text-neutral-600 dark:bg-neutral-900 dark:text-neutral-400"
+  >
+    <Header />
+    <main class="px-6">
+      <div
+        class="mx-auto max-w-[39rem] border border-y-0 border-neutral-200 px-[10px] pt-8 dark:border-neutral-700 md:pt-12"
+      >
+        <slot />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

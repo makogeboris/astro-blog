@@ -1,0 +1,22 @@
+---
+import Logo from "./Logo.astro";
+import Navigation from "./Navigation.astro";
+import Hamburger from "./Hamburger.astro";
+import MobileMenu from "./MobileMenu.astro";
+import ThemeIcon from "./ThemeIcon.astro";
+---
+
+<header class="px-4 pt-4 sm:pt-5">
+  <div
+    class="relative mx-auto flex max-w-[40rem] items-center justify-between rounded-rd-sm border border-neutral-100 bg-neutral-0 p-[6px] shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <Logo />
+
+    <div class="flex items-center gap-[6px] md:gap-5">
+      <Navigation />
+      <Hamburger />
+      <MobileMenu />
+      <ThemeIcon />
+    </div>
+  </div>
+</header>

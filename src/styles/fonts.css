@@ -1,0 +1,54 @@
+/* Regular */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans/static/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Medium */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans/static/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* SemiBold */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans/static/DMSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans/static/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ExtraBold */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans/static/DMSans-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DM_Sans/static/DMSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/Fira_Code/static/FiraCode-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}

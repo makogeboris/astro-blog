@@ -1,0 +1,22 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="nav-links hidden md:flex">
+  <ul class="flex items-center gap-6">
+    {
+      ["/", "/blog", "/about", "/newsletter"].map((path) => (
+        <li>
+          <a
+            href={path}
+            class={`relative rounded-sm text-base font-normal leading-snug tracking-tighter text-neutral-600 transition-colors duration-300 after:absolute after:bottom-[-3px] after:left-0 after:h-[3px] after:bg-blue-700 after:transition-all after:duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800 dark:text-neutral-400 ${currentPath === path ? "text-neutral-900 after:w-full dark:text-neutral-200" : "after:w-0 hover:text-neutral-700 hover:after:w-full dark:hover:text-neutral-200"}`}
+          >
+            {path === "/"
+              ? "Home"
+              : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,0 +1,14 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import LatestArticles from "../components/LatestArticles.astro";
+const pageTitle = "Home";
+---
+
+<MainLayout pageTitle={pageTitle}>
+  <Hero />
+  <div class="mb-8 h-[1px] w-full bg-neutral-200 dark:bg-neutral-700 md:mb-12">
+  </div>
+  <LatestArticles />
+  <div class="h-[1px] w-full bg-neutral-200 dark:bg-neutral-700"></div>
+</MainLayout>

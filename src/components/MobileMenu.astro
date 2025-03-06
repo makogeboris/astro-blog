@@ -1,0 +1,51 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<div
+  id="mobile-menu"
+  class="mobile-menu absolute left-0 top-20 z-50 hidden w-full rounded-rd-sm border border-neutral-100 bg-neutral-0 p-3 shadow-lg dark:border-neutral-700 dark:bg-neutral-800 md:hidden"
+>
+  <nav>
+    <ul class="flex flex-col items-start">
+      <li class="w-full pb-[6px]">
+        <a
+          class={`relative text-base font-normal leading-snug tracking-tighter text-neutral-600 dark:text-neutral-400 transition-colors duration-300 rounded-sm
+          after:absolute after:bottom-[-3px] after:left-0 after:h-[3px] after:bg-blue-700 after:transition-all after:duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800
+          ${currentPath === "/" ? "text-neutral-900 dark:text-neutral-200 after:w-full" : "after:w-0 hover:text-neutral-700 dark:hover:text-neutral-200 hover:after:w-full"}`}
+          href="/">Home</a
+        >
+      </li>
+      <li
+        class="w-full border-t border-neutral-200 py-[6px] dark:border-neutral-700"
+      >
+        <a
+          class={`relative text-base font-normal leading-snug tracking-tighter text-neutral-600 dark:text-neutral-400 transition-colors duration-300 rounded-sm
+          after:absolute after:bottom-[-3px] after:left-0 after:h-[3px] after:bg-blue-700 after:transition-all after:duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800
+          ${currentPath === "/blog" ? "text-neutral-900 dark:text-neutral-200 after:w-full" : "after:w-0 hover:text-neutral-700 dark:hover:text-neutral-200 hover:after:w-full"}`}
+          href="/blog">Blog</a
+        >
+      </li>
+      <li
+        class="w-full border-t border-neutral-200 py-[6px] dark:border-neutral-700"
+      >
+        <a
+          class={`relative text-base font-normal leading-snug tracking-tighter text-neutral-600 dark:text-neutral-400 transition-colors duration-300 rounded-sm
+          after:absolute after:bottom-[-3px] after:left-0 after:h-[3px] after:bg-blue-700 after:transition-all after:duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800
+          ${currentPath === "/about" ? "text-neutral-900 dark:text-neutral-200 after:w-full" : "after:w-0 hover:text-neutral-700 dark:hover:text-neutral-200 hover:after:w-full"}`}
+          href="/about">About</a
+        >
+      </li>
+      <li
+        class="w-full border-t border-neutral-200 pt-[6px] dark:border-neutral-700"
+      >
+        <a
+          class={`relative text-base font-normal leading-snug tracking-tighter text-neutral-600 dark:text-neutral-400 transition-colors duration-300 rounded-sm
+          after:absolute after:bottom-[-3px] after:left-0 after:h-[3px] after:bg-blue-700 after:transition-all after:duration-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-800
+          ${currentPath === "/newsletter" ? "text-neutral-900 dark:text-neutral-200 after:w-full" : "after:w-0 hover:text-neutral-700 dark:hover:text-neutral-200 hover:after:w-full"}`}
+          href="/newsletter">Newsletter</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>
