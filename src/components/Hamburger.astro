@@ -1,48 +1,44 @@
----
-
----
-
 <button
-  class="hamburger grid size-10 place-items-center rounded-lg border-transparent focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800 md:hidden"
-  aria-label="Menu"
   id="hamburger-button"
+  class="grid size-10 place-items-center rounded-lg border-transparent focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800 md:hidden"
+  aria-label="Toggle mobile menu"
 >
   <!-- Open Icon -->
   <svg
     id="open-icon"
+    class="block"
     width="18"
     height="12"
     viewBox="0 0 18 12"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="block"
   >
     <path
+      class="stroke-neutral-900 dark:stroke-neutral-0"
       d="M1.5 6H16.5M1.5 1H16.5M1.5 11H16.5"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
-      stroke-linejoin="round"
-      class="stroke-neutral-900 dark:stroke-neutral-0"></path>
+      stroke-linejoin="round"></path>
   </svg>
 
   <!-- Close Icon -->
   <svg
     id="close-icon"
+    class="hidden"
     width="12"
     height="12"
     viewBox="0 0 12 12"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="hidden"
   >
     <path
+      class="stroke-neutral-0 dark:stroke-neutral-900"
       d="M11 1L1 11M1 1L11 11"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
-      stroke-linejoin="round"
-      class="stroke-neutral-0 dark:stroke-neutral-900"></path>
+      stroke-linejoin="round"></path>
   </svg>
 </button>
 

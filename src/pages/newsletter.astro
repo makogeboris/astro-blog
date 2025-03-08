@@ -4,5 +4,200 @@ const pageTitle = "Newsletter";
 ---
 
 <MainLayout pageTitle={pageTitle}>
-  <h1>Newsletter</h1>
+  <div class="flex flex-col gap-60 sm:gap-[424px]">
+    <div class="space-y-6">
+      <div class="space-y-4">
+        <h1
+          class="text-preset2 font-extrabold leading-snug tracking-tighter text-neutral-700 dark:text-neutral-0"
+        >
+          Newsletter
+        </h1>
+
+        <p
+          class="text-lg font-normal leading-normal tracking-tighter text-neutral-600 dark:text-neutral-400"
+        >
+          Want to stay updated on my latest articles, coding tutorials, and
+          personal adventures? Sign up for my newsletter! It’s a simple way to
+          keep track of new posts and occasional coding tips I discover. Just
+          drop your email in the sign-up box, and I’ll send you updates whenever
+          there’s something new to share.
+        </p>
+
+        <p
+          class="text-xl font-semibold leading-normal tracking-tighter text-neutral-700 dark:text-neutral-0"
+        >
+          I’d love to have you along for the ride and also hear about your own
+          journey!
+        </p>
+      </div>
+
+      <form novalidate id="form" class="flex w-full flex-col items-start">
+        <div class="flex w-full flex-col gap-[6px]">
+          <label
+            class="text-lg font-normal leading-normal tracking-tighter text-neutral-700 dark:text-neutral-0"
+            for="email">Email Address</label
+          >
+
+          <input
+            id="email"
+            class="rounded-rd-sm border border-neutral-300 bg-neutral-0 px-4 py-3 text-lg font-normal leading-normal tracking-tighter text-neutral-600 focus-visible:outline-none focus-visible:outline-offset-2 focus-visible:outline-blue-800 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
+            type="email"
+            name="email"
+            placeholder="example@email.com"
+          />
+          <div id="validation-message" class="hidden items-center gap-2">
+            <svg
+              id="success-icon"
+              class="hidden"
+              width="14"
+              height="15"
+              viewBox="0 0 14 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fill-green-700 dark:fill-green-500"
+                d="M7 0.46875C10.7188 0.46875 13.7812 3.53125 13.7812 7.25C13.7812 10.9961 10.7188 14.0312 7 14.0312C3.25391 14.0312 0.21875 10.9961 0.21875 7.25C0.21875 3.53125 3.25391 0.46875 7 0.46875ZM7 1.78125C3.96484 1.78125 1.53125 4.24219 1.53125 7.25C1.53125 10.2852 3.96484 12.7188 7 12.7188C10.0078 12.7188 12.4688 10.2852 12.4688 7.25C12.4688 4.24219 10.0078 1.78125 7 1.78125ZM10.8281 5.36328C10.9375 5.47266 10.9375 5.69141 10.8281 5.82812L6.09766 10.5039C5.96094 10.6406 5.76953 10.6406 5.63281 10.5039L3.14453 7.98828C3.03516 7.87891 3.03516 7.66016 3.14453 7.52344L3.77344 6.92188C3.91016 6.78516 4.10156 6.78516 4.23828 6.92188L5.87891 8.5625L9.73438 4.73438C9.87109 4.59766 10.0898 4.59766 10.1992 4.73438L10.8281 5.36328Z"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              id="success-message"
+              class="hidden text-base font-normal tracking-tighter text-green-700 dark:text-green-500"
+            >
+              You’re subscribed! Check your inbox for updates.
+            </p>
+            <svg
+              id="error-icon"
+              class="hidden"
+              width="14"
+              height="15"
+              viewBox="0 0 14 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fill-red-600 dark:fill-red-400"
+                d="M7 0.46875C10.7188 0.46875 13.7812 3.53125 13.7812 7.25C13.7812 10.9961 10.7188 14.0312 7 14.0312C3.25391 14.0312 0.21875 10.9961 0.21875 7.25C0.21875 3.53125 3.25391 0.46875 7 0.46875ZM7 12.7188C10.0078 12.7188 12.4688 10.2852 12.4688 7.25C12.4688 4.24219 10.0078 1.78125 7 1.78125C3.96484 1.78125 1.53125 4.24219 1.53125 7.25C1.53125 10.2852 3.96484 12.7188 7 12.7188ZM7 3.47656C7.62891 3.47656 8.14844 3.99609 8.14844 4.625C8.14844 5.28125 7.62891 5.77344 7 5.77344C6.34375 5.77344 5.85156 5.28125 5.85156 4.625C5.85156 3.99609 6.34375 3.47656 7 3.47656ZM8.53125 10.4219C8.53125 10.6133 8.36719 10.75 8.20312 10.75H5.79688C5.60547 10.75 5.46875 10.6133 5.46875 10.4219V9.76562C5.46875 9.60156 5.60547 9.4375 5.79688 9.4375H6.125V7.6875H5.79688C5.60547 7.6875 5.46875 7.55078 5.46875 7.35938V6.70312C5.46875 6.53906 5.60547 6.375 5.79688 6.375H7.54688C7.71094 6.375 7.875 6.53906 7.875 6.70312V9.4375H8.20312C8.36719 9.4375 8.53125 9.60156 8.53125 9.76562V10.4219Z"
+                fill="currentColor"></path>
+            </svg>
+            <p
+              id="error-message"
+              class="hidden text-base font-normal tracking-tighter text-red-600 dark:text-red-400"
+            >
+              Please enter a valid email address.
+            </p>
+            <svg
+              class="hidden"
+              width="14"
+              height="15"
+              viewBox="0 0 14 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fill-green-700 dark:fill-green-500"
+                d="M7 0.46875C10.7188 0.46875 13.7812 3.53125 13.7812 7.25C13.7812 10.9961 10.7188 14.0312 7 14.0312C3.25391 14.0312 0.21875 10.9961 0.21875 7.25C0.21875 3.53125 3.25391 0.46875 7 0.46875ZM7 1.78125C3.96484 1.78125 1.53125 4.24219 1.53125 7.25C1.53125 10.2852 3.96484 12.7188 7 12.7188C10.0078 12.7188 12.4688 10.2852 12.4688 7.25C12.4688 4.24219 10.0078 1.78125 7 1.78125ZM10.8281 5.36328C10.9375 5.47266 10.9375 5.69141 10.8281 5.82812L6.09766 10.5039C5.96094 10.6406 5.76953 10.6406 5.63281 10.5039L3.14453 7.98828C3.03516 7.87891 3.03516 7.66016 3.14453 7.52344L3.77344 6.92188C3.91016 6.78516 4.10156 6.78516 4.23828 6.92188L5.87891 8.5625L9.73438 4.73438C9.87109 4.59766 10.0898 4.59766 10.1992 4.73438L10.8281 5.36328Z"
+                fill="currentColor"></path>
+            </svg>
+
+            <p
+              class="hidden text-base font-normal tracking-tighter text-green-700 dark:text-green-500"
+            >
+              You’re subscribed! Check your inbox for updates.
+            </p>
+
+            <svg
+              class="hidden"
+              width="14"
+              height="15"
+              viewBox="0 0 14 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="fill-red-600 dark:fill-red-400"
+                d="M7 0.46875C10.7188 0.46875 13.7812 3.53125 13.7812 7.25C13.7812 10.9961 10.7188 14.0312 7 14.0312C3.25391 14.0312 0.21875 10.9961 0.21875 7.25C0.21875 3.53125 3.25391 0.46875 7 0.46875ZM7 12.7188C10.0078 12.7188 12.4688 10.2852 12.4688 7.25C12.4688 4.24219 10.0078 1.78125 7 1.78125C3.96484 1.78125 1.53125 4.24219 1.53125 7.25C1.53125 10.2852 3.96484 12.7188 7 12.7188ZM7 3.47656C7.62891 3.47656 8.14844 3.99609 8.14844 4.625C8.14844 5.28125 7.62891 5.77344 7 5.77344C6.34375 5.77344 5.85156 5.28125 5.85156 4.625C5.85156 3.99609 6.34375 3.47656 7 3.47656ZM8.53125 10.4219C8.53125 10.6133 8.36719 10.75 8.20312 10.75H5.79688C5.60547 10.75 5.46875 10.6133 5.46875 10.4219V9.76562C5.46875 9.60156 5.60547 9.4375 5.79688 9.4375H6.125V7.6875H5.79688C5.60547 7.6875 5.46875 7.55078 5.46875 7.35938V6.70312C5.46875 6.53906 5.60547 6.375 5.79688 6.375H7.54688C7.71094 6.375 7.875 6.53906 7.875 6.70312V9.4375H8.20312C8.36719 9.4375 8.53125 9.60156 8.53125 9.76562V10.4219Z"
+                fill="currentColor"></path>
+            </svg>
+
+            <p
+              class="hidden text-base font-normal tracking-tighter text-red-600 dark:text-red-400"
+            >
+              Please enter a valid email address.
+            </p>
+          </div>
+        </div>
+
+        <button
+          id="submit-btn"
+          class="mt-4 rounded-rd-sm bg-blue-500 px-6 py-3 text-lg font-medium leading-normal tracking-tight text-neutral-900 transition-all duration-300 hover:bg-blue-700 focus-visible:outline-offset-2"
+          type="submit">Stay updated</button
+        >
+        <p
+          class="mt-2 text-base font-normal leading-normal tracking-tighter text-neutral-600 dark:text-neutral-400"
+        >
+          Unsubscribe anytime. No spam, I promise 🙂
+        </p>
+      </form>
+    </div>
+
+    <div
+      class="mt-8 h-[1px] w-full bg-neutral-200 dark:bg-neutral-700 md:mt-12"
+    >
+    </div>
+  </div>
 </MainLayout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form");
+    const emailInput = document.getElementById("email");
+    const validationMessage = document.getElementById("validation-message");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
+    const successIcon = document.getElementById("success-icon");
+    const errorIcon = document.getElementById("error-icon");
+
+    if (
+      !form ||
+      !emailInput ||
+      !validationMessage ||
+      !successMessage ||
+      !errorMessage ||
+      !successIcon ||
+      !errorIcon
+    ) {
+      console.warn("One or more elements are missing.");
+      return;
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const emailValue = emailInput.value.trim();
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+
+      validationMessage.classList.remove("hidden");
+      validationMessage.classList.add("flex");
+      successMessage.classList.add("hidden");
+      errorMessage.classList.add("hidden");
+      successIcon.classList.add("hidden");
+      errorIcon.classList.add("hidden");
+
+      if (isValidEmail) {
+        successMessage.classList.remove("hidden");
+        successIcon.classList.remove("hidden");
+        emailInput.style.borderColor = "#008531";
+      } else {
+        errorMessage.classList.remove("hidden");
+        errorIcon.classList.remove("hidden");
+        emailInput.style.borderColor = "#d92d20";
+      }
+    });
+
+    emailInput.addEventListener("input", () => {
+      validationMessage.classList.add("hidden");
+      emailInput.style.borderColor = "#dedcda";
+      emailInput.classList.remove("dark:border-neutral-600");
+    });
+  });
+</script>

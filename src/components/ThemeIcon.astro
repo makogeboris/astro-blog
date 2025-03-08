@@ -1,14 +1,20 @@
----
-import moon from "../assets/icon-moon.svg";
-import sun from "../assets/icon-sun.svg";
----
-
 <button
   id="theme-toggle"
   class="grid size-10 place-items-center rounded-lg border border-neutral-100 bg-neutral-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800 dark:border-neutral-700 dark:bg-neutral-900"
+  aria-label="Toggle theme"
 >
-  <img class="hidden" id="theme-toggle-dark-icon" src={moon.src} alt="" />
-  <img class="hidden" id="theme-toggle-light-icon" src={sun.src} alt="" />
+  <img
+    id="theme-toggle-dark-icon"
+    class="hidden"
+    src="/images/icon-moon.svg"
+    alt=""
+  />
+  <img
+    id="theme-toggle-light-icon"
+    class="hidden"
+    src="/images/icon-sun.svg"
+    alt=""
+  />
 </button>
 
 <script is:inline>
