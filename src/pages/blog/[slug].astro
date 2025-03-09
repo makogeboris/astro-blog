@@ -1,0 +1,41 @@
+---
+// src/pages/blog/[slug].astro
+
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+// Define getStaticPaths to generate all possible paths
+export async function getStaticPaths() {
+  const posts = await getCollection("blog"); // Fetch posts here
+  return posts.map(
+    (post: { slug: string; data: { title: string; publishedAt: string } }) => ({
+      params: { slug: post.slug }, // Use the slug from the frontmatter
+      props: { post }, // Pass the post data as props
+    }),
+  );
+}
+
+// Access the post data passed from getStaticPaths
+const {
+  post,
+}: { post: { slug: string; data: { title: string; publishedAt: string } } } =
+  Astro.props;
+
+// Render the MDX content
+const { Content } = await render(post);
+
+const pageTitle = `${post.data.title}`;
+---
+
+<MainLayout pageTitle={pageTitle}>
+  <article class="mx-auto max-w-3xl space-y-6">
+    <h1 class="text-4xl font-bold">{post.data.title}</h1>
+    <p class="text-gray-500">
+      {new Date(post.data.publishedAt).toLocaleDateString("en-US")}
+    </p>
+    <div class="prose prose-lg dark:prose-invert">
+      <Content />
+    </div>
+  </article>
+</MainLayout>

@@ -1,8 +1,59 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-const pageTitle = "Blog";
+const pageTitle = "My Articles";
+
+import { getCollection } from "astro:content";
+
+// Fetch all blog posts from the collection
+import type { CollectionEntry } from "astro:content";
+const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 ---
 
 <MainLayout pageTitle={pageTitle}>
-  <h1>Blog</h1>
+  <div>
+    <div>
+      <h1
+        class="relative w-fit text-preset2 font-extrabold leading-snug tracking-tighter text-neutral-700 after:absolute after:bottom-[10px] after:right-[-45px] after:h-1 after:w-10 after:bg-blue-700 dark:text-neutral-0"
+      >
+        My Articles
+      </h1>
+
+      <p
+        class="mt-[6px] text-lg font-normal leading-normal tracking-tighter text-neutral-600 dark:text-neutral-400"
+      >
+        Below are all my recent blog posts. Click on any title to read the full
+        article.
+      </p>
+    </div>
+
+    <div class="mb-5 mt-6 h-[1px] w-full bg-neutral-200 dark:bg-neutral-700">
+    </div>
+
+    <section class="mx-auto max-w-3xl space-y-6">
+      {
+        posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="block">
+            <h2 class="mb-2 text-2xl font-semibold">{post.data.title}</h2>
+            <p class="text-gray-500">{formatDate(post.data.publishedAt)}</p>
+            <p class="mt-2 text-gray-700 dark:text-gray-300">
+              {post.data.description}
+            </p>
+          </a>
+        ))
+      }
+    </section>
+
+    <div
+      class="mt-8 h-[1px] w-full bg-neutral-200 dark:bg-neutral-700 md:mt-12"
+    >
+    </div>
+  </div>
 </MainLayout>

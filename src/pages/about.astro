@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Social from "../components/Social.astro";
-const pageTitle = "About";
+const pageTitle = "About Me";
 ---
 
 <MainLayout pageTitle={pageTitle}>
@@ -85,7 +85,7 @@ const pageTitle = "About";
     <picture>
       <source
         srcset="/images/image-workspace-large.jpg"
-        media="(min-width: 768px)"
+        media="(min-width: 48rem)"
       />
       <img
         src="/images/image-workspace-small.jpg"
@@ -93,6 +93,13 @@ const pageTitle = "About";
         class="mt-6 rounded-xl"
       />
     </picture>
+
+    <p
+      class="text-lg font-normal leading-normal tracking-tighter text-neutral-600 dark:text-neutral-400"
+    >
+      I hope this blog not only documents my growth but also helps others see
+      that coding can be for everyone. Thanks for joining me on this journey!
+    </p>
 
     <div class="space-y-6">
       <h2
