@@ -1,17 +1,15 @@
 ---
-// src/pages/blog/[slug].astro
-
 import { getCollection } from "astro:content";
 import { render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 // Define getStaticPaths to generate all possible paths
 export async function getStaticPaths() {
-  const posts = await getCollection("blog"); // Fetch posts here
+  const posts = await getCollection("blog");
   return posts.map(
     (post: { slug: string; data: { title: string; publishedAt: string } }) => ({
-      params: { slug: post.slug }, // Use the slug from the frontmatter
-      props: { post }, // Pass the post data as props
+      params: { slug: post.slug },
+      props: { post },
     }),
   );
 }
@@ -26,16 +24,33 @@ const {
 const { Content } = await render(post);
 
 const pageTitle = `${post.data.title}`;
+
+function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 ---
 
 <MainLayout pageTitle={pageTitle}>
-  <article class="mx-auto max-w-3xl space-y-6">
-    <h1 class="text-4xl font-bold">{post.data.title}</h1>
-    <p class="text-gray-500">
-      {new Date(post.data.publishedAt).toLocaleDateString("en-US")}
+  <article class="">
+    <h1
+      class="text-preset1 font-extrabold leading-snug tracking-ls-xl text-neutral-700 dark:text-neutral-0"
+    >
+      {post.data.title}
+    </h1>
+    <p
+      class="my-3 text-base font-normal italic leading-snug tracking-tighter text-neutral-600 dark:text-neutral-400"
+    >
+      Published {formatDate(post.data.publishedAt)}
     </p>
-    <div class="prose prose-lg dark:prose-invert">
+    <div class="prose dark:prose-dark">
       <Content />
     </div>
   </article>
+
+  <div class="mt-8 h-[1px] w-full bg-neutral-200 dark:bg-neutral-700 md:mt-12">
+  </div>
 </MainLayout>

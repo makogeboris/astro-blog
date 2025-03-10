@@ -1,12 +1,17 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-const pageTitle = "My Articles";
-
 import { getCollection } from "astro:content";
-
-// Fetch all blog posts from the collection
 import type { CollectionEntry } from "astro:content";
+
+const pageTitle = "My Articles";
 const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+
+const sortedPosts = posts.sort((a, b) => {
+  return (
+    new Date(b.data.publishedAt).getTime() -
+    new Date(a.data.publishedAt).getTime()
+  );
+});
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -37,18 +42,32 @@ function formatDate(date: string) {
     <div class="mb-5 mt-6 h-[1px] w-full bg-neutral-200 dark:bg-neutral-700">
     </div>
 
-    <section class="mx-auto max-w-3xl space-y-6">
-      {
-        posts.map((post) => (
-          <a href={`/blog/${post.slug}`} class="block">
-            <h2 class="mb-2 text-2xl font-semibold">{post.data.title}</h2>
-            <p class="text-gray-500">{formatDate(post.data.publishedAt)}</p>
-            <p class="mt-2 text-gray-700 dark:text-gray-300">
-              {post.data.description}
-            </p>
-          </a>
-        ))
-      }
+    <section class="">
+      <ul class="">
+        {
+          sortedPosts.map((post, index) => (
+            <li>
+              <a
+                href={`/blog/${post.slug}`}
+                class="block rounded-lg focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
+              >
+                <h2 class="text-xl font-semibold leading-snug tracking-tighter text-neutral-700 transition-all duration-300 hover:underline hover:opacity-70 dark:text-neutral-0">
+                  {post.data.title}
+                </h2>
+              </a>
+              <p class="mt-2 text-base font-normal italic leading-snug tracking-tight text-neutral-600 dark:text-neutral-400">
+                {formatDate(post.data.publishedAt)}
+              </p>
+              <p class="mt-2 text-base font-normal leading-snug tracking-tight text-neutral-600 dark:text-neutral-400">
+                {post.data.description}
+              </p>
+              {index < posts.length - 1 && (
+                <div class="my-5 h-[1px] w-full bg-neutral-200 dark:bg-neutral-700" />
+              )}
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
     <div

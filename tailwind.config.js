@@ -4,6 +4,102 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: {
+              fontSize: "2rem",
+              fontWeight: "700",
+              letterSpacing: "-0.5px",
+              lineHeight: "1.3",
+              marginTop: "0",
+              marginBottom: "1rem",
+              color: "hsl(26, 7%, 19%)",
+            },
+            h3: {
+              fontSize: "1.75rem",
+              fontWeight: "700",
+              letterSpacing: "-0.5px",
+              lineHeight: "1.3",
+              marginTop: "0",
+              marginBottom: "0.75rem",
+              color: "hsl(26, 7%, 19%)",
+            },
+            h4: {
+              fontSize: "1.5rem",
+              fontWeight: "700",
+              letterSpacing: "-0.5px",
+              lineHeight: "1.3",
+              marginTop: "0",
+              marginBottom: "0.75rem",
+              color: "hsl(26, 7%, 19%)",
+            },
+            p: {
+              fontSize: "1.125rem",
+              fontWeight: "400",
+              letterSpacing: "-0.2px",
+              lineHeight: "1.5",
+              marginTop: "0",
+              marginBottom: "1rem",
+              color: "hsl(30, 3%, 28%)",
+            },
+            hr: {
+              border: "none",
+              height: "1px",
+              width: "100%",
+              marginTop: "1.5rem",
+              marginBottom: "1.5rem",
+            },
+            li: {
+              fontSize: "1.125rem",
+              fontWeight: "400",
+              letterSpacing: "-0.2px",
+              lineHeight: "1.5",
+              marginTop: "0.75rem",
+              marginBottom: "0.75rem",
+              color: "hsl(30, 3%, 28%)",
+            },
+            blockquote: {
+              borderLeftColor: "hsl(0, 1%, 75%)",
+              borderLeftStyle: "solid",
+              borderLeftWidth: "4px",
+              marginTop: "1.125rem",
+              marginBottom: "1.125rem",
+              paddingLeft: "0.75rem",
+              paddingRight: "0.75rem",
+            },
+            strong: {
+              color: "hsl(30, 3%, 28%)",
+              fontWeight: "800",
+            },
+          },
+        },
+        dark: {
+          css: {
+            h2: {
+              color: "hsl(0, 0%, 100%)",
+            },
+            h3: {
+              color: "hsl(0, 0%, 100%)",
+            },
+            h4: {
+              color: "hsl(0, 0%, 100%)",
+            },
+            blockquote: {
+              borderLeftColor: "hsl(30, 3%, 28%)",
+            },
+            p: {
+              color: "hsl(0, 1%, 75%)",
+            },
+            li: {
+              color: "hsl(0, 1%, 75%)",
+            },
+            strong: {
+              color: "hsl(0, 1%, 75%)",
+            },
+          },
+        },
+      },
       fontFamily: {
         sans: ["DM Sans", "sans-serif"],
         mono: ["Fira Code", "monospace"],
@@ -63,5 +159,5 @@ export default {
       backgroundImage: ["dark"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

@@ -1,5 +1,17 @@
 ---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
+const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+
+const sortedPosts = posts.sort((a, b) => {
+  return (
+    new Date(b.data.publishedAt).getTime() -
+    new Date(a.data.publishedAt).getTime()
+  );
+});
+
+const latestPosts = sortedPosts.slice(0, 5);
 ---
 
 <section class="flex flex-col gap-8 pb-8 md:pb-12">
@@ -10,7 +22,29 @@
   </h2>
 
   <div>
-    <p>articles</p>
+    <ul class="space-y-6">
+      {
+        latestPosts.map((post) => (
+          <li>
+            <a
+              href={`/blog/${post.slug}`}
+              class="block rounded-lg focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
+            >
+              <h2 class="text-xl font-semibold leading-snug tracking-tighter text-neutral-700 transition-all duration-300 hover:underline hover:opacity-70 dark:text-neutral-0">
+                {post.data.title}
+              </h2>
+            </a>
+            <p class="mt-2 text-base font-normal italic leading-snug tracking-tight text-neutral-600 dark:text-neutral-400">
+              {new Date(post.data.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
   </div>
 
   <a
