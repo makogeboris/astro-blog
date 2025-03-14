@@ -29,9 +29,19 @@ const { pageTitle } = Astro.props;
     <title>Personal Blog | {pageTitle}</title>
   </head>
   <body
-    class="bg-neutral-100 font-sans text-neutral-600 dark:bg-neutral-900 dark:text-neutral-400"
+    class="min-h-screen bg-neutral-100 font-sans text-neutral-600 dark:bg-neutral-900 dark:text-neutral-400"
   >
     <Header />
+
+    <div
+      class="absolute left-[-212px] top-[227px] -z-30 hidden size-[423px] bg-pattern-light-mode bg-no-repeat dark:bg-pattern-dark-mode lg:block"
+    >
+    </div>
+    <!-- <div
+      class="absolute right-[calc(50%-423px)] top-0 -z-30 hidden size-[423px] bg-pattern-light-mode bg-no-repeat dark:bg-pattern-dark-mode lg:block"
+    >
+    </div> -->
+
     <main class="px-6">
       <div
         class="mx-auto max-w-[39rem] border border-y-0 border-neutral-200 px-[10px] pt-8 dark:border-neutral-700 md:pt-12"
@@ -39,6 +49,7 @@ const { pageTitle } = Astro.props;
         <slot />
       </div>
     </main>
+
     <Footer />
   </body>
 </html>

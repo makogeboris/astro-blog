@@ -40,7 +40,7 @@ export default {
               letterSpacing: "-0.2px",
               lineHeight: "1.5",
               marginTop: "0",
-              marginBottom: "1rem",
+              marginBottom: "0",
               color: "hsl(30, 3%, 28%)",
             },
             hr: {
@@ -72,6 +72,9 @@ export default {
               color: "hsl(30, 3%, 28%)",
               fontWeight: "800",
             },
+            table: {
+              borderRadius: "0.5rem",
+            },
           },
         },
         dark: {
@@ -95,6 +98,9 @@ export default {
               color: "hsl(0, 1%, 75%)",
             },
             strong: {
+              color: "hsl(0, 1%, 75%)",
+            },
+            code: {
               color: "hsl(0, 1%, 75%)",
             },
           },
@@ -146,11 +152,11 @@ export default {
         "ls-xs": "-0.2px",
       },
       borderRadius: {
-        "rd-sm": "10px",
+        "rd-sm": "0.625rem",
       },
       backgroundImage: (theme) => ({
-        "pattern-dark-mode": "('/public/images/pattern-dark.svg')",
-        "pattern-light-mode": "('/public/images/pattern-light.svg')",
+        "pattern-dark-mode": "url('/images/pattern-dark.svg')",
+        "pattern-light-mode": "url('/images/pattern-light.svg')",
       }),
     },
   },

@@ -1,0 +1,88 @@
+---
+import { getHighlighter } from "../../shiki.js";
+
+const highlighter = await getHighlighter();
+const { code, lang = "text" } = Astro.props;
+
+const processedCode = code.replace(/\/\_(.*?)\_\//g, "/* $1 */");
+const lightHtml = await highlighter.codeToHtml(processedCode, {
+  lang,
+  theme: "github-light",
+});
+const darkHtml = await highlighter.codeToHtml(processedCode, {
+  lang,
+  theme: "github-dark",
+});
+---
+
+<div class="code-container">
+  <div class="code-wrapper light-version" set:html={lightHtml} />
+  <div class="code-wrapper dark-version" set:html={darkHtml} />
+</div>
+
+<style>
+  .code-container {
+    position: relative;
+  }
+
+  .light-version {
+    display: block;
+  }
+  .dark-version {
+    display: none;
+  }
+
+  :global(.dark) .light-version {
+    display: none;
+  }
+  :global(.dark) .dark-version {
+    display: block;
+  }
+
+  .code-wrapper :global(.shiki) {
+    padding: 0.75rem;
+    overflow-x: auto;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .code-wrapper :global(.shiki code) {
+    font-size: 1rem;
+    font-family: "Fira Code", monospace;
+  }
+
+  .code-wrapper :global(.shiki code span) {
+    font-size: 1rem;
+  }
+
+  .light-version :global(.shiki) {
+    background-color: #efedeb !important;
+    border: 1px solid #efedeb;
+  }
+
+  .dark-version :global(.shiki) {
+    background-color: #201e1d !important;
+    border: 1px solid #34302d;
+  }
+</style>
+
+<script is:inline>
+  function updateCodeTheme() {
+    const isDarkMode =
+      localStorage.getItem("color-theme") === "dark" ||
+      (!localStorage.getItem("color-theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    const codeBlocks = document.querySelectorAll(".code-wrapper .shiki");
+    codeBlocks.forEach((block) => {
+      block.classList.remove("dark", "light");
+      block.classList.add(isDarkMode ? "dark" : "light");
+      block.style.backgroundColor = isDarkMode ? "#201e1d" : "#efedeb";
+    });
+  }
+
+  updateCodeTheme();
+
+  document.addEventListener("themeChanged", updateCodeTheme);
+</script>

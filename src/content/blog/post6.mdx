@@ -5,6 +5,9 @@ publishedAt: "2025-01-28T00:00:00Z"
 description: "My adventure into JavaScript's fundamentals—variables, functions, loops, and more."
 ---
 
+import Code from "../../components/Code.astro";
+import InlineCode from "../../components/InlineCode.astro";
+
 While HTML and CSS handle structure and style, JavaScript is what adds interactivity and depth. I'm still learning the ropes, but I've already uncovered some nifty basics that made me fall in love with the language.
 
 <hr class="my-8 bg-neutral-200 dark:bg-neutral-700" />
@@ -16,49 +19,52 @@ This quote rings true for me. Nothing beats rolling up your sleeves and coding, 
 
 <hr class="bg-neutral-200 dark:bg-neutral-700" />
 
-### Diving into the Essentials
+## Diving into the Essentials
 
-1. **Variables**: These are like containers for storing data. You can declare a variable using `let`, `const`, or `var`.
+1. **Variables**: These are like containers for storing data. You can declare a variable using <InlineCode code={`let`} lang="javascript" />, <InlineCode code={`const`} lang="javascript" />, or <InlineCode code={`var`} lang="javascript" />.
 2. **Data Types**: Common ones include **strings**, **numbers**, **booleans**, **null**, and **undefined**.
 3. **Functions**: Think of these as reusable code blocks that perform specific tasks.
-4. **Conditionals**: `if`, `else`, and `switch` let you handle different scenarios based on conditions.
-5. **Loops**: `for`, `while`, and `forEach` are your best friends for repeating actions.
+4. **Conditionals**: <InlineCode code={`if`} lang="javascript" />, <InlineCode code={`else`} lang="javascript" />, and <InlineCode code={`switch`} lang="javascript" /> let you handle different scenarios based on conditions.
+5. **Loops**: <InlineCode code={`for`} lang="javascript" />, <InlineCode code={`while`} lang="javascript" />, and <InlineCode code={`forEach`} lang="javascript" /> are your best friends for repeating actions.
 
 Even though these building blocks may seem straightforward, mastering them is key to writing code that's clean and efficient.
 
 <hr class="bg-neutral-200 dark:bg-neutral-700" />
 
-### A Quick Code Example
+## A Quick Code Example
 
 Here's a tiny snippet that shows how you might use JavaScript to greet users and add two numbers:
 
-```js
+<Code 
+  code={`
 // 1. Ask for the user's name
 const userName = prompt("What's your name?");
 
 // 2. Greet the user
-console.log(`Hello, ${userName}! Welcome to my blog.`);
+console.log(\`Hello, \${userName}! Welcome to my blog.\`);
 
 // 3. A simple function that adds two numbers
 function addNumbers(a, b) {
-  return a + b;
+return a + b;
 }
 
 // 4. Let's give it a try
 const result = addNumbers(5, 7);
-console.log(`The sum of 5 and 7 is: ${result}`);
-```
+console.log(\`The sum of 5 and 7 is: \${result}\`);
+`}
+lang="javascript"
+/>
 
-- **Line 1** uses `prompt()` to get input from the user.
-- **Line 2** uses template literals (the backticks) to insert `userName` into the string.
+- **Line 1** uses <InlineCode code={`prompt`} lang="javascript" /> to get input from the user.
+- **Line 2** uses template literals (the backticks) to insert <InlineCode code={`userName`} lang="javascript" /> into the string.
 - **Lines 3–7** define a function to add two numbers, then return the result.
-- **Line 10** calls `addNumbers()` and logs the result to the console.
+- **Line 10** calls <InlineCode code={`addNumbers()`} lang="javascript" /> and logs the result to the console.
 
 I love these little examples because they showcase just how straightforward JavaScript can be. Of course, there's _so_ much more to learn, but this is a neat place to start.
 
 <hr class="bg-neutral-200 dark:bg-neutral-700" />
 
-### My Biggest Takeaway
+## My Biggest Takeaway
 
 JavaScript initially felt intimidating, but after a few days of experimenting, I realized that it's basically a set of rules and tools that help you tell your browser what to do. As someone who likes to _see things happen_ in real-time, JavaScript is an absolute delight. Just remember to:
 

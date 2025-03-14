@@ -35,6 +35,14 @@
       }
     }
 
+    function updateShikiCodeBlocks(isDark) {
+      const codeBlocks = document.querySelectorAll(".shiki");
+      codeBlocks.forEach((block) => {
+        block.classList.toggle("dark", isDark);
+        block.classList.toggle("light", !isDark);
+      });
+    }
+
     const isDarkMode =
       localStorage.getItem("color-theme") === "dark" ||
       (!localStorage.getItem("color-theme") &&
@@ -47,6 +55,7 @@
     }
 
     updateIcons(isDarkMode);
+    updateShikiCodeBlocks(isDarkMode);
 
     themeToggleBtn.addEventListener("click", () => {
       const isCurrentlyDark =
@@ -61,6 +70,7 @@
       }
 
       updateIcons(!isCurrentlyDark);
+      updateShikiCodeBlocks(!isCurrentlyDark);
     });
   }
 </script>

@@ -1,0 +1,27 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const pageTitle = "404 Not Found";
+---
+
+<MainLayout pageTitle={pageTitle}>
+  <div
+    class="flex min-h-[71vh] flex-col items-center justify-center gap-3 text-center"
+  >
+    <h1
+      class="text-preset1 font-extrabold leading-snug tracking-ls-xl text-neutral-700 dark:text-neutral-0"
+    >
+      404 Not Found
+    </h1>
+
+    <p
+      class="text-2xl font-normal leading-snug tracking-tight text-neutral-600 dark:text-neutral-400"
+    >
+      Sorry, we can’t find the page you’re looking for
+    </p>
+
+    <a
+      class="mt-4 rounded-rd-sm bg-blue-500 px-6 py-3 text-lg font-medium leading-normal tracking-tight text-neutral-900 transition-all duration-300 hover:bg-blue-700 focus-visible:outline-offset-2"
+      href="/">Go Home</a
+    >
+  </div>
+</MainLayout>

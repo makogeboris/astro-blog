@@ -5,20 +5,33 @@ publishedAt: "2025-01-16T00:00:00Z"
 description: "A recap of my first steps in web development, from basic tags to styling techniques."
 ---
 
+import Code from "../../components/Code.astro";
+import InlineCode from "../../components/InlineCode.astro";
+
 This past week, I dove headfirst into HTML and CSS—and I've got to say, I'm both excited and a little overwhelmed. Below, I'll share some highlights, a few struggles, and a handy table showing how I tackled each day.
 
 <hr class="my-8 bg-neutral-200 dark:bg-neutral-700" />
 
-### Getting Started
+## Getting Started
 
 I kicked things off by creating a super basic webpage. At first, my page was basically just a white screen with a heading and a sentence. Exciting, right? But the moment I _linked my first CSS file_ and changed the background color... I felt like I unlocked a whole new universe.
 
-> **Tip: If you're as new as I am, start small**.  
-> Even making a simple page look cool with basic styling can spark major motivation.
+<div class="my-6 flex items-start gap-2 rounded-xl border border-green-500 bg-green-200 p-3 dark:border-green-700 dark:bg-green-900">
+  <img class="relative top-[3px] my-0" src="/images/icon-tip.svg" />
+  <div class="">
+    <p class="my-0 font-extrabold text-neutral-700 dark:text-neutral-0">
+      **Tip: If you're as new as I am, start small**
+    </p>
+    <p class="my-0">
+      Even making a simple page look cool with basic styling can spark major
+      motivation.
+    </p>
+  </div>
+</div>
 
 <hr class="bg-neutral-200 dark:bg-neutral-700" />
 
-### What Surprised Me
+## What Surprised Me
 
 - **HTML isn't “hard,”** but it's easy to get lost in the tags. You'll want to keep your structure organized from the start.
 - **CSS is powerful**, but learning about the box model made my head spin at first. Turns out, margins, borders, and padding can actually be fun once you get the hang of it.
@@ -26,29 +39,146 @@ I kicked things off by creating a super basic webpage. At first, my page was bas
 
 <hr class="bg-neutral-200 dark:bg-neutral-700" />
 
-### A Little Table of My Progress
+## A Little Table of My Progress
 
 Below is a quick rundown of what I focused on each day of my first week. It's not _super_ detailed, but it'll give you a sense of how I paced things out.
 
-| Day       | HTML Topic                               | CSS Topic                | Notes                                                       |
-| --------- | ---------------------------------------- | ------------------------ | ----------------------------------------------------------- |
-| Monday    | Basic tags: `<html>`, `<head>`, `<body>` | Inline styles            | Felt odd mixing styles with HTML, but it was good practice. |
-| Tuesday   | Headings & paragraphs                    | External CSS w/ `<link>` | Loved keeping my CSS separate. Much cleaner.                |
-| Wednesday | Links & images                           | Fonts & typography       | Played with Google Fonts—so many options!                   |
-| Thursday  | Lists & tables                           | The box model            | Understanding padding vs. margin was a game changer.        |
-| Friday    | Divs & sections                          | Basic layout (float)     | Floats can be tricky—definitely some trial and error here.  |
-| Saturday  | Forms (text inputs, buttons)             | Flexbox basics           | Flexbox is _so_ much easier to use than floats.             |
-| Sunday    | Revision & mini-project                  | More practice on Flexbox | Built a small demo page to test everything I learned.       |
+<table className="table-auto rounded-lg border border-neutral-200 dark:border-neutral-700">
+  <thead>
+    <tr className="">
+      <th className="border border-neutral-200 px-[6px] pb-2 pt-[6px] text-left dark:border-neutral-700">
+        **Day**
+      </th>
+      <th className="border border-neutral-200 px-[6px] pb-2 pt-[6px] text-left dark:border-neutral-700">
+        **HTML Topic**
+      </th>
+      <th className="border border-neutral-200 px-[6px] pb-2 pt-[6px] text-left dark:border-neutral-700">
+        **CSS Topic**
+      </th>
+      <th className="border border-neutral-200 px-[6px] pb-2 pt-[6px] text-left dark:border-neutral-700">
+        **Notes**
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] text-base dark:border-neutral-700">
+        Monday
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Basic tags:
+        {[
+        <InlineCode code={`html`} lang="html" key="html" />,
+        <InlineCode code={`head`} lang="html" key="head" />,
+        <InlineCode code={`body`} lang="html" key="body" />
+        ]}
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Inline styles
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Felt odd mixing styles with HTML, but good practice.
+      </td>
+    </tr>
+    <tr>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Tuesday
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Headings & paragraphs
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        External CSS w/ 
+        {[<InlineCode code={`link`} lang="html" key="link" />]}
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Loved keeping my CSS separate. Much cleaner.
+      </td>
+    </tr>
+    <tr>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Wednesday
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Links & images
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Fonts & typography
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Played with Google Fonts—so many options!
+      </td>
+    </tr>
+    <tr>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Thursday
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Lists & tables
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        The box model
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Understanding padding vs. margin was a game changer.
+      </td>
+    </tr>
+    <tr>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Friday
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Divs & sections
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Basic layout (float)
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Floats can be tricky—definitely some trial and error.
+      </td>
+    </tr>
+    <tr>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Saturday
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Forms (text inputs, buttons)
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Flexbox basics
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Flexbox is _so_ much easier to use than floats.
+      </td>
+    </tr>
+    <tr>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Sunday
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Revision & mini-project
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        More practice on Flexbox
+      </td>
+      <td className="border border-neutral-200 px-[6px] pb-2 pt-[6px] dark:border-neutral-700">
+        Built a small demo page to test everything learned.
+      </td>
+    </tr>
+
+  </tbody>
+</table>
 
 <hr class="bg-neutral-200 dark:bg-neutral-700" />
 
-### One Thing I'm Proud Of
+## One Thing I'm Proud Of
 
 I managed to build a tiny website for my personal notes. It only has a home page and a second page listing my to-do items, but it's fully styled! A small win, but it felt huge to me. Using `<div>`s and basic Flexbox properties, I was able to line up everything nicely.
 
 Here's a snippet of code (it's simple, but it got me excited):
 
-```html
+<Code
+  code={`
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,16 +202,21 @@ Here's a snippet of code (it's simple, but it got me excited):
     </main>
   </body>
 </html>
-```
+`}
+  lang="html"
+/>
 
 And guess what? It actually looked decent once I threw in some CSS for spacing and colors!
 
 <hr class="bg-neutral-200 dark:bg-neutral-700" />
 
-### What's Next?
+## What's Next?
 
+<div class="space-y-3">
 In the coming days, I'm planning to dive deeper into responsive design. Making websites that look good on a phone, tablet, and desktop at the same time sounds like a challenge, but I'm ready for it.
 
 If you're learning HTML & CSS too, keep experimenting! I discovered that the best way to learn is by building tiny projects—even if they're just for fun. You'll be amazed at how quickly you improve when you're actively creating something.
 
 Alright, that's all for now. Thanks for reading, and I'll be back soon with more updates!
+
+</div>

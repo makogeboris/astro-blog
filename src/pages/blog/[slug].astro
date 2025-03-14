@@ -20,9 +20,7 @@ const {
 }: { post: { slug: string; data: { title: string; publishedAt: string } } } =
   Astro.props;
 
-// Render the MDX content
 const { Content } = await render(post);
-
 const pageTitle = `${post.data.title}`;
 
 function formatDate(date: string) {
@@ -35,7 +33,7 @@ function formatDate(date: string) {
 ---
 
 <MainLayout pageTitle={pageTitle}>
-  <article class="">
+  <article>
     <h1
       class="text-preset1 font-extrabold leading-snug tracking-ls-xl text-neutral-700 dark:text-neutral-0"
     >
