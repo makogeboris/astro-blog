@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- [Live Site]()
+- [Live Site](https://pau-blog-astro.netlify.app/)
 
 ### Built with
 
@@ -42,6 +42,42 @@ Users should be able to:
 - [MDX](https://mdxjs.com/)
 
 ### What I learned
+
+I learned how to use `getCollection("blog")` to fetch and display MDX posts dynamically. I initially wanted to get the data for the blog posts directly from the `data.json` file provided, but I realized that it wouldn’t support Markdown or MDX formatting.
+Instead, I decided to use Astro’s content collections and MDX files which allowed me to write blog posts in Markdown/MDX, making it easier to format the content.
+
+```js
+// Fetch all blog posts from the "blog" content collection
+const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+```
+
+Taking this approach helped me better understand dynamic routing in Astro, as I needed to set up [slug].astro and `getStaticPaths()` to handle individual blog posts.
+
+```js
+// Define getStaticPaths to generate all possible paths
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map(
+    (post: { slug: string; data: { title: string; publishedAt: string } }) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }),
+  );
+}
+```
+
+```js
+// Access the post data passed from getStaticPaths
+const {
+  post,
+}: { post: { slug: string; data: { title: string; publishedAt: string } } } =
+  Astro.props;
+
+// Render the MDX content of the post
+const { Content } = await render(post);
+```
+
+This project helped me understand the strengths of Astro’s approach to content-driven sites and how to structure a blog efficiently.
 
 ## Author
 
